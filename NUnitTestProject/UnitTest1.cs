@@ -105,5 +105,20 @@ namespace NUnitTestProject
             }
 
         }
+        [Test]
+        public void PasswordRule3ExpectingTrueResult()//Atleast 1 numeric number 
+        {
+            string PasswordRule3 = "login&&af";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.PasswordRule3(PasswordRule3);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("password rule3 is not valid", exception.Message);
+            }
+
+        }
     }
 }

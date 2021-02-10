@@ -123,5 +123,24 @@ namespace UserRegistrationException
             }
 
         }
+        public string PasswordRule3(string passwordRule3)
+        {
+            string passwordRule3Pattern = @"^(?=.*[A-Z])(?=.*\d).{8,}$";
+            Regex regex = new Regex(passwordRule3Pattern);
+            var result = regex.Match(passwordRule3);
+            try
+            {
+                if (!result.Success)
+                {
+                    throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule3 is not valid");
+                }
+                return "password rule3 is valid";
+            }
+            catch
+            {
+                throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule3 is not valid");
+            }
+
+        }
     }
 }
