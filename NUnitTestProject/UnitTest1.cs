@@ -18,7 +18,7 @@ namespace NUnitTestProject
         [Test]
         public void GivenFirstNameExpectingTrueResult()
         {
-            string firstName = "Dilip";
+            string firstName ="dilip";
             string actual = " ";
             try
             {
@@ -26,9 +26,24 @@ namespace NUnitTestProject
             }
             catch(UserRegistrationCustomeException exception)
             {
-                Assert.AreEqual("First name is not valid",exception.Message);
+                Assert.AreEqual("first name is not valid",exception.Message);
             }
             
+        }
+        [Test]
+        public void GivenLastNameExpectingTrueResult()
+        {
+            string lastName ="rathod";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.LastName(lastName);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("last name is not valid", exception.Message);
+            }
+
         }
     }
 }
