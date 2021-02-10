@@ -39,13 +39,32 @@ namespace UserRegistrationException
                 {
                     throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.LAST_NAME_MESSAGE, "last name is not valid");
                 }
-               return "first name is valid";
+               return "last name is valid";
             }
             catch
             {
                 throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.LAST_NAME_MESSAGE, "last name is not valid");
             }
             
+        }
+        public string EmailId(string emailid)
+        {
+            string emailPattern = @"^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}(.[][a-zA-Z]{2})*$";
+            Regex regex = new Regex(emailPattern);
+            var result = regex.Match(emailid);
+            try
+            {
+                if (!result.Success)
+                {
+                    throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.EMAIL_ID, "emailid is not valid");
+                }
+                return "emailid is valid";
+            }
+            catch
+            {
+                throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.EMAIL_ID, "emailid is not valid");
+            }
+
         }
     }
 }

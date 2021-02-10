@@ -45,5 +45,20 @@ namespace NUnitTestProject
             }
 
         }
+        [Test]
+        public void GivenEmailExpectingTrueResult()
+        {
+            string emailid = "abc.xyz@yahoo.com";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.EmailId(emailid);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("emailid is not valid", exception.Message);
+            }
+
+        }
     }
 }
