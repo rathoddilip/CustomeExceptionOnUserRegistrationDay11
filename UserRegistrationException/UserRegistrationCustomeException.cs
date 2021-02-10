@@ -9,7 +9,7 @@ namespace UserRegistrationException
         ExceptionType type;
         public enum ExceptionType
         {
-            FIRST_NAME_MESSAGE,LAST_NAME_MESSAGE,EMAIL_ID,
+            FIRST_NAME_MESSAGE,LAST_NAME_MESSAGE,EMAIL_ID,MOBILE_NUMBER,
         }
         public UserRegistrationCustomeException(ExceptionType type,string message):base(message)
         {

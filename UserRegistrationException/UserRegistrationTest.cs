@@ -66,5 +66,24 @@ namespace UserRegistrationException
             }
 
         }
+        public string MobileNumber(string mobileNumber)
+        {
+            string mobileNumberPattern = @"^[0-9]{2,}\s[0-9]{10,}$";
+            Regex regex = new Regex(mobileNumberPattern);
+            var result = regex.Match(mobileNumber);
+            try
+            {
+                if (!result.Success)
+                {
+                    throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.MOBILE_NUMBER, "mobile number is not valid");
+                }
+                return "mobile number is valid";
+            }
+            catch
+            {
+                throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.MOBILE_NUMBER, "mobile number is not valid");
+            }
+
+        }
     }
 }

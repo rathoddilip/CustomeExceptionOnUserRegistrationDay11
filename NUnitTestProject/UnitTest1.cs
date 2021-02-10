@@ -49,7 +49,7 @@ namespace NUnitTestProject
         public void GivenEmailExpectingTrueResult()
         {
             string emailid = "abc.xyz@yahoo.com";
-            string actual = " ";
+            string actual = " "; 
             try
             {
                 actual = userRegistrationTest.EmailId(emailid);
@@ -57,6 +57,21 @@ namespace NUnitTestProject
             catch (UserRegistrationCustomeException exception)
             {
                 Assert.AreEqual("emailid is not valid", exception.Message);
+            }
+
+        }
+        [Test]
+        public void MobileNumberExpectingTrueResult()
+        {
+            string mobileNumber ="91+ 9988776655";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.MobileNumber(mobileNumber);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("mobile number is not valid", exception.Message);
             }
 
         }
