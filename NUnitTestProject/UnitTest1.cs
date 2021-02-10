@@ -120,5 +120,20 @@ namespace NUnitTestProject
             }
 
         }
+        [Test]
+        public void PasswordRule4ExpectingTrueResult()//Exactly 1 special character
+        {
+            string passwordRule4 = "Login1234";
+            string actual ;
+            try
+            {
+                actual = userRegistrationTest.PasswordRule4(passwordRule4);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("password rule4 is not valid", exception.Message);
+            }
+
+        }
     }
 }
