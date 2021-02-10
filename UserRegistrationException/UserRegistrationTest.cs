@@ -85,5 +85,24 @@ namespace UserRegistrationException
             }
 
         }
+        public string PasswordRule1(string passwordRule1)
+        {
+            string passwordRule1Pattern = @"^.{8,}$";
+            Regex regex = new Regex(passwordRule1Pattern);
+            var result = regex.Match(passwordRule1);
+            try
+            {
+                if (!result.Success)
+                {
+                    throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule1 is not valid");
+                }
+                return "password rule1 is valid";
+            }
+            catch
+            {
+                throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule1 is not valid");
+            }
+
+        }
     }
 }

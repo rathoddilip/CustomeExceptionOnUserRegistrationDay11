@@ -75,5 +75,20 @@ namespace NUnitTestProject
             }
 
         }
+        [Test]
+        public void PasswordRule1ExpectingTrueResult()//minimum 8 character
+        {
+            string PasswordRule1 ="login@1";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.PasswordRule1(PasswordRule1);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("password rule1 is not valid", exception.Message);
+            }
+
+        }
     }
 }
