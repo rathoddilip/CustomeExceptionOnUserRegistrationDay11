@@ -104,5 +104,24 @@ namespace UserRegistrationException
             }
 
         }
+        public string PasswordRule2(string passwordRule2)
+        {
+            string passwordRule2Pattern = @"^(?=.*[A-Z]).{8,}$";
+            Regex regex = new Regex(passwordRule2Pattern);
+            var result = regex.Match(passwordRule2);
+            try
+            {
+                if (!result.Success)
+                {
+                    throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule2 is not valid");
+                }
+                return "password rule2 is valid";
+            }
+            catch
+            {
+                throw new UserRegistrationCustomeException(UserRegistrationCustomeException.ExceptionType.PASSWORDRULES, "password rule2 is not valid");
+            }
+
+        }
     }
 }

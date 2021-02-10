@@ -90,5 +90,20 @@ namespace NUnitTestProject
             }
 
         }
+        [Test]
+        public void PasswordRule2ExpectingTrueResult()//Atleast 1 upperCase character
+        {
+            string PasswordRule2 = "login@123";
+            string actual = " ";
+            try
+            {
+                actual = userRegistrationTest.PasswordRule2(PasswordRule2);
+            }
+            catch (UserRegistrationCustomeException exception)
+            {
+                Assert.AreEqual("password rule2 is not valid", exception.Message);
+            }
+
+        }
     }
 }
